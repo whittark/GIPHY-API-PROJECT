@@ -53,7 +53,7 @@ function removeLastButton() {
 //and AJAX query to get GIF (3)response handling
 function displayGifs() {
 	var ghibli = $(this).attr("data-name");
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + ghibli + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=6&rating=G";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + ghibli + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10&rating=G";
 
 	$.ajax({
 		url: queryURL,
@@ -105,6 +105,10 @@ $(document).on("click", ".image", function(){
 	if (state == 'still') {
 		$(this).attr('src', $(this).data('animate'));
 		$(this).attr('data-state', 'animate');
+	}
+	if (state == 'animate') {
+		$(this).attr('src', $(this).data('still'));
+		$(this).attr('data-state', 'still');
 	}else {
 		$(this).attr('src', $(this),data('still'));
 		$(this).attr('data-state', 'still');
