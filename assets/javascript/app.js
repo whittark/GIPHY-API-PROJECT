@@ -67,27 +67,16 @@ function displayGifs() {
 			alert("No GIF found"); //Message if no GIF
 		}
 		for (var i = 0; i<results.length; i++) {
-
 			var gifDiv = $("<div1>");
-
 			var gifRating = $("<p>").text("Rating " + results[i].rating);
-
-			gifDiv.append(gifRating); //Appends rating
-			
 			var gifImage = $("<img>"); //Creates image element
-
 			gifImage.attr("src", results[i] .images.fixed_height_small_still.url); //Grabs still, small image
-
 			gifImage.attr("data-still", results[i].images.fixed_height_small_still.url); //Adds still attr
-
 			gifImage.attr("data-animate", results[i].images.fixed_height_small.url); //Adds animate attr
-
 			gifImage.attr("data-state", "still"); //Defaults to still
-
 			gifImage.addClass("image");
-
 			gifDiv.append(gifImage); //Adds gif to gifDiv as still with animated stored
-
+			gifDiv.append(gifRating); //Appends rating
 			$("#gifsView").prepend(gifDiv);
 		}
 	});
